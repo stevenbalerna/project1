@@ -5,7 +5,8 @@ var name = ''
 var rating = ''
 var price = ''
 var image = ''
-$('document').ready(function () {
+$('#submitLocationBtn').on('click', function () {
+    var location = $('#cityInput').val().trim() + ', ' + $('#stateInput').children('option:selected').val()
 
     var apiKey = 'gYpd0tg2LukWlDSHSOD5LgGSwODx7DSxL4tNAKDW0Hmo3isXWutgLbtpboiWy76e79vrCD02K9yc1Gfm5VMOc2XmDoyloCiaWVRg2PGbksm9ByMzEjTrbPS5CQv3XHYx'
     $.ajax({
@@ -18,7 +19,7 @@ $('document').ready(function () {
         },
         data: {
             term: 'restaurants',
-            location: 'NC',
+            location: location,
             sort_by: 'rating',
             limit: '5'
         }
@@ -28,7 +29,7 @@ $('document').ready(function () {
             rating = response.businesses[i].rating
             price = response.businesses[i].price
             image = response.businesses[i].image_url
-            var businessResponse = ('<h3>Name:</h3>') + ('<p>') + name + ('</p><br><h3>Rating:</h3><br><p>') + rating + ('</p><br><h3>Price:</h3><br><p>') + price + ('</p><br><img class ="images" src="' + image + '">')
+            var businessResponse = ('<h3>Name:</h3>') + ('<p>') + name + ('</p><h3>Rating:</h3><p>') + rating + ('</p><h3>Price:</h3><p>') + price + ('</p><img class ="images" src="' + image + '">')
             $('#yelpInfo').append(businessResponse)
             $('.images').css('height', '200px')
         }
@@ -44,7 +45,7 @@ $('document').ready(function () {
         },
         data: {
             term: 'bars',
-            location: 'NC',
+            location: location,
             sort_by: 'rating',
             limit: '5'
         }
@@ -54,7 +55,7 @@ $('document').ready(function () {
             rating = response.businesses[i].rating
             price = response.businesses[i].price
             image = response.businesses[i].image_url
-            var businessResponse = ('<h3>Name:</h3>') + ('<p>') + name + ('</p><br><h3>Rating:</h3><br><p>') + rating + ('</p><br><h3>Price:</h3><br><p>') + price + ('</p><br><img class ="images" src="' + image + '">')
+            var businessResponse = ('<h3>Name:</h3>') + ('<p>') + name + ('</p><h3>Rating:</h3><p>') + rating + ('</p><h3>Price:</h3><p>') + price + ('</p><img class ="images" src="' + image + '">')
             $('#yelpInfo').append(businessResponse)
             $('.images').css('height', '200px')
         }
