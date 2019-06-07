@@ -1,18 +1,62 @@
 //https://www.yelp.com/developers/documentation/v3/business_search
 //http://api.jquery.com/jquery.ajax/#jQuery-ajax-settings
 //https://wp-oauth.com/docs/how-to/using-a-bearer-token-with-wp-rest-api/
-$('document').ready(function() {
+var name = ''
+var rating = ''
+var price = ''
+var image = ''
+$('document').ready(function () {
 
     var apiKey = 'gYpd0tg2LukWlDSHSOD5LgGSwODx7DSxL4tNAKDW0Hmo3isXWutgLbtpboiWy76e79vrCD02K9yc1Gfm5VMOc2XmDoyloCiaWVRg2PGbksm9ByMzEjTrbPS5CQv3XHYx'
     $.ajax({
-        url: 'https://api.yelp.com/v3/businesses/search',
         type: 'GET',
-        data: {term: 'restaurants', location: 'NY', sort_by: 'rating', limit: '5'},
-        beforeSend: function (xhr) {
-            xhr.setRequestHeader('Authorization', 'BEARER ' + apiKey);
+        url: 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search',
+        dataType: 'json',
+        contentType: 'application/json',
+        headers: {
+            'Authorization': 'Bearer ' + apiKey
         },
-        success: function(response){
-            console.log(response)
+        data: {
+            term: 'restaurants',
+            location: 'NC',
+            sort_by: 'rating',
+            limit: '5'
+        }
+    }).then(function (response) {
+        for (i=0; i<response.businesses.length; i++){
+            name = response.businesses[i].name
+            rating = response.businesses[i].rating
+            price = response.businesses[i].price
+            image = response.businesses[i].image_url
+            var businessResponse = ('<h3>Name:</h3>') + ('<p>') + name + ('</p><br><h3>Rating:</h3><br><p>') + rating + ('</p><br><h3>Price:</h3><br><p>') + price + ('</p><br><img class ="images" src="' + image + '">')
+            $('#yelpInfo').append(businessResponse)
+            $('.images').css('height', '200px')
+        }
+    })
+
+    $.ajax({
+        type: 'GET',
+        url: 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search',
+        dataType: 'json',
+        contentType: 'application/json',
+        headers: {
+            'Authorization': 'Bearer ' + apiKey
+        },
+        data: {
+            term: 'bars',
+            location: 'NC',
+            sort_by: 'rating',
+            limit: '5'
+        }
+    }).then(function (response) {
+        for (i=0; i<response.businesses.length; i++){
+            name = response.businesses[i].name
+            rating = response.businesses[i].rating
+            price = response.businesses[i].price
+            image = response.businesses[i].image_url
+            var businessResponse = ('<h3>Name:</h3>') + ('<p>') + name + ('</p><br><h3>Rating:</h3><br><p>') + rating + ('</p><br><h3>Price:</h3><br><p>') + price + ('</p><br><img class ="images" src="' + image + '">')
+            $('#yelpInfo').append(businessResponse)
+            $('.images').css('height', '200px')
         }
     })
 });
