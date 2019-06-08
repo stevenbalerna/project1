@@ -7,9 +7,9 @@ var price = ''
 var image = ''
 $('#submitLocationBtn').on('click', function () {
     var location = $('#cityInput').val().trim() + ', ' + $('#stateInput').children('option:selected').val()
-    var restaurants = $('<div id = "restaurants"><h1>Restaurants:</h1>')
+    var restaurants = $('<div id = "restaurants"><h1>Restaurants:</h1><hr><br>')
     $('#yelpInfo').append(restaurants)
-    var bars = $('<div id = "bars"><h1>Bars:</h1>')
+    var bars = $('<div id = "bars"><h1>Bars:</h1><hr><br>')
     bars.insertAfter(restaurants)
 
     var apiKey = 'gYpd0tg2LukWlDSHSOD5LgGSwODx7DSxL4tNAKDW0Hmo3isXWutgLbtpboiWy76e79vrCD02K9yc1Gfm5VMOc2XmDoyloCiaWVRg2PGbksm9ByMzEjTrbPS5CQv3XHYx'
