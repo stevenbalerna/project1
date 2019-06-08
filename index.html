@@ -13,6 +13,7 @@
         crossorigin="anonymous"></script>
     </script>
     <script src='assets/yelp-api.js' defer></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
@@ -28,7 +29,7 @@
         </div>
     </div>
 
-    <form class="form-inline justify-content-lg-center bg-danger">
+    <form class="form-inline justify-content-lg-center">
             <div class="form-group">
                     <label for="cityInput" class="p-2">Enter a City to Scope</label>
                     <input type="text" class="form-control" id="cityInput" placeholder="City Name">
@@ -37,57 +38,57 @@
                     <label for="stateInput" class="p-2">Select State</label>
                     <select class="form-control" id="stateInput">
                             <option value="Select State" selected disabled hidden>Select State</option>
-                            <option value="AL">Alabama (AL)</option>
-                            <option value="AK">Alaska (AK)</option>
-                            <option value="AZ">Arizona (AZ)</option>
-                            <option value="AR">Arkansas (AR)</option>
-                            <option value="CA">California (CA)</option>
-                            <option value="CO">Colorado (CO)</option>
-                            <option value="CT">Connecticut (CT)</option>
-                            <option value="DE">Delaware (DE)</option>
-                            <option value="DC">District Of Columbia (DC)</option>
-                            <option value="FL">Florida (FL)</option>
-                            <option value="GA">Georgia (GA)</option>
-                            <option value="HI">Hawaii (HI)</option>
-                            <option value="ID">Idaho (ID)</option>
-                            <option value="IL">Illinois (IL)</option>
-                            <option value="IN">Indiana (IN)</option>
-                            <option value="IA">Iowa (IA)</option>
-                            <option value="KS">Kansas (KS)</option>
-                            <option value="KY">Kentucky (KY)</option>
-                            <option value="LA">Louisiana (LA)</option>
-                            <option value="ME">Maine (ME)</option>
-                            <option value="MD">Maryland (MD)</option>
-                            <option value="MA">Massachusetts (MA)</option>
-                            <option value="MI">Michigan (MI)</option>
-                            <option value="MN">Minnesota (MN)</option>
-                            <option value="MS">Mississippi (MS)</option>
-                            <option value="MO">Missouri (MO)</option>
-                            <option value="MT">Montana (MT)</option>
-                            <option value="NE">Nebraska (NE)</option>
-                            <option value="NV">Nevada (NV)</option>
-                            <option value="NH">New Hampshire (NH)</option>
-                            <option value="NJ">New Jersey (NJ)</option>
-                            <option value="NM">New Mexico (NM)</option>
-                            <option value="NY">New York (NY)</option>
-                            <option value="NC">North Carolina (NC)</option>
-                            <option value="ND">North Dakota (ND)</option>
-                            <option value="OH">Ohio (OH)</option>
-                            <option value="OK">Oklahoma (OK)</option>
-                            <option value="OR">Oregon (OR)</option>
-                            <option value="PA">Pennsylvania (PA)</option>
-                            <option value="RI">Rhode Island (RI)</option>
-                            <option value="SC">South Carolina (SC)</option>
-                            <option value="SD">South Dakota (SD)</option>
-                            <option value="TN">Tennessee (TN)</option>
-                            <option value="TX">Texas (TX)</option>
-                            <option value="UT">Utah (UT)</option>
-                            <option value="VT">Vermont</option>
-                            <option value="VA">Virginia</option>
-                            <option value="WA">Washington</option>
-                            <option value="WV">West Virginia</option>
-                            <option value="WI">Wisconsin</option>
-                            <option value="WY">Wyoming</option>
+                            <option data-index = "01" value="AL">Alabama (AL)</option>
+                            <option data-index = "02" value="AK">Alaska (AK)</option>
+                            <option data-index = "04" value="AZ">Arizona (AZ)</option>
+                            <option data-index = "05" value="AR">Arkansas (AR)</option>
+                            <option data-index = "06" value="CA">California (CA)</option>
+                            <option data-index = "08" value="CO">Colorado (CO)</option>
+                            <option data-index = "09" value="CT">Connecticut (CT)</option>
+                            <option data-index = "10" value="DE">Delaware (DE)</option>
+                            <option data-index = "11" value="DC">District Of Columbia (DC)</option>
+                            <option data-index = "12" value="FL">Florida (FL)</option>
+                            <option data-index = "13" value="GA">Georgia (GA)</option>
+                            <option data-index = "15" value="HI">Hawaii (HI)</option>
+                            <option data-index = "16" value="ID">Idaho (ID)</option>
+                            <option data-index = "17" value="IL">Illinois (IL)</option>
+                            <option data-index = "18" value="IN">Indiana (IN)</option>
+                            <option data-index = "19" value="IA">Iowa (IA)</option>
+                            <option data-index = "20" value="KS">Kansas (KS)</option>
+                            <option data-index = "21" value="KY">Kentucky (KY)</option>
+                            <option data-index = "22" value="LA">Louisiana (LA)</option>
+                            <option data-index = "23" value="ME">Maine (ME)</option>
+                            <option data-index = "24" value="MD">Maryland (MD)</option>
+                            <option data-index = "25" value="MA">Massachusetts (MA)</option>
+                            <option data-index = "26" value="MI">Michigan (MI)</option>
+                            <option data-index = "27" value="MN">Minnesota (MN)</option>
+                            <option data-index = "28" value="MS">Mississippi (MS)</option>
+                            <option data-index = "29" value="MO">Missouri (MO)</option>
+                            <option data-index = "30" value="MT">Montana (MT)</option>
+                            <option data-index = "31" value="NE">Nebraska (NE)</option>
+                            <option data-index = "32" value="NV">Nevada (NV)</option>
+                            <option data-index = "33" value="NH">New Hampshire (NH)</option>
+                            <option data-index = "34" value="NJ">New Jersey (NJ)</option>
+                            <option data-index = "35" value="NM">New Mexico (NM)</option>
+                            <option data-index = "36" value="NY">New York (NY)</option>
+                            <option data-index = "37" value="NC">North Carolina (NC)</option>
+                            <option data-index = "38" value="ND">North Dakota (ND)</option>
+                            <option data-index = "39" value="OH">Ohio (OH)</option>
+                            <option data-index = "40" value="OK">Oklahoma (OK)</option>
+                            <option data-index = "41" value="OR">Oregon (OR)</option>
+                            <option data-index = "42" value="PA">Pennsylvania (PA)</option>
+                            <option data-index = "44" value="RI">Rhode Island (RI)</option>
+                            <option data-index = "45" value="SC">South Carolina (SC)</option>
+                            <option data-index = "46" value="SD">South Dakota (SD)</option>
+                            <option data-index = "47" value="TN">Tennessee (TN)</option>
+                            <option data-index = "48" value="TX">Texas (TX)</option>
+                            <option data-index = "49" value="UT">Utah (UT)</option>
+                            <option data-index = "50" value="VT">Vermont</option>
+                            <option data-index = "51" value="VA">Virginia</option>
+                            <option data-index = "53" value="WA">Washington</option>
+                            <option data-index = "54" value="WV">West Virginia</option>
+                            <option data-index = "55" value="WI">Wisconsin</option>
+                            <option data-index = "56" value="WY">Wyoming</option>
                     </select>
                   </div>
             
@@ -101,10 +102,7 @@
                 <div class="card-header text-dark text-center bg-danger">
                     <strong>City Facts</strong>
                 </div>
-                <div class="card-body">
-                    <blockquote class="blockquote mb-0 text-center">
-                        <p><strong>City info from Census will go here</strong></p>
-                    </blockquote>
+                <div class="card-body" id="cityInfo">
                 </div>
             </div>
         </div>
@@ -114,11 +112,7 @@
                 <div class="card-header text-dark text-center bg-danger">
                     <strong>Fun Scope</strong>
                 </div>
-                <div class="card-body" id="yelpInfo">
-                    <blockquote class="blockquote mb-0 text-center">
-                        <p><strong>City info from Yelp will go here</strong></p>
-                    </blockquote>
-                    
+                <div class="card-body" id="yelpInfo">   
                 </div>
             </div>
         </div>
