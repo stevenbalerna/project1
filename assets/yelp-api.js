@@ -6,10 +6,12 @@ var rating = ''
 var price = ''
 var image = ''
 $('#submitLocationBtn').on('click', function () {
+    $('#yelpInfo').empty()
+    event.preventDefault()
     var location = $('#cityInput').val().trim() + ', ' + $('#stateInput').children('option:selected').val()
     var restaurants = $('<div id = "restaurants"><h1>Restaurants:</h1><hr><br>')
-    $('#yelpInfo').append(restaurants)
     var bars = $('<div id = "bars"><h1>Bars:</h1><hr><br>')
+    $('#yelpInfo').append(restaurants)
     bars.insertAfter(restaurants)
 
     var apiKey = 'gYpd0tg2LukWlDSHSOD5LgGSwODx7DSxL4tNAKDW0Hmo3isXWutgLbtpboiWy76e79vrCD02K9yc1Gfm5VMOc2XmDoyloCiaWVRg2PGbksm9ByMzEjTrbPS5CQv3XHYx'
@@ -59,7 +61,7 @@ $('#submitLocationBtn').on('click', function () {
             rating = response.businesses[i].rating
             price = response.businesses[i].price
             image = response.businesses[i].image_url
-            var businessResponse = ('<h3>Name:</h3>') + ('<p>') + name + ('</p><h3>Rating:</h3><p>') + rating + ('</p><h3>Price:</h3><p>') + price + ('</p><img class ="images" src="' + image + '">')
+            var businessResponse = ('<h3>Name:</h3>') + ('<p>') + name + ('</p><img class ="images" src="' + image + '"><h3>Rating:</h3><p>') + rating + ('</p><h3>Price:</h3><p class = "price">') + price + ('</p>')
             bars.append(businessResponse)
             $('.images').css('height', '200px')
         }
