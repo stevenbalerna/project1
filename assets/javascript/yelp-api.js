@@ -6,7 +6,8 @@ var rating = ''
 var price = ''
 var image = ''
 $('#submitLocationBtn').on('click', function () {
-    $('#yelpInfo').empty()
+    $('#restaurants').empty()
+    $('#bars').empty()
     event.preventDefault()
     var location = $('#cityInput').val().trim() + ', ' + $('#stateInput').children('option:selected').val()
     var restaurants = $('<div id = "restaurants"><h1>Restaurants:</h1><hr><br>')
