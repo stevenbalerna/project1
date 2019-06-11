@@ -75,7 +75,7 @@ function getCityData(link){
         url: link,
         method: 'GET'
     }).then(function (response) {
-        cityInfo.cityName = response.full_name;
+        cityInfo.cityName = response.full_name.split(",")[0] + ", " + response.full_name.split(",")[1];
         cityInfo.cityPopulation = response.population;
 
         if(response._links.hasOwnProperty("city:urban_area")){
@@ -104,12 +104,16 @@ function getCityData(link){
 
 function displayCityInfo(cityInfo){
     $("#cityInfo").empty();
-    var $container = $("<div>")
-    var $cityName = $("<h3>").text(cityInfo.cityName).appendTo($container);
-    var $cityPopulation = $("<h5>").text("Population: " + cityInfo.cityPopulation).appendTo($container);
+
+    var $container = $("<div>").attr("class", "row")
+    var $cityName = $("<h1>").attr("class", "col-12 mt-3 mb-3 text-center").text(cityInfo.cityName).appendTo($container);
+    var $cityPopulation = $("<h5>").attr("class", "col-12 text-center pb-4 mb-3 border-bottom border-secondary").text("Population: " + cityInfo.cityPopulation).appendTo($container);
 
     cityInfo.scoreNames.forEach(name => {
-        $container.append($("<h5>").text(name + ": " + cityInfo.scores[cityInfo.scoreNames.indexOf(name)]))
+
+        var scoreName = $("<h5>").attr("class", "col-6 col-md-3").text(name);
+        var score =  $("<h5>").attr("class", "col-6 col-md-3").text(cityInfo.scores[cityInfo.scoreNames.indexOf(name)]);
+        $container.append(scoreName, score)
     });
 
     $("#cityInfo").append($container);

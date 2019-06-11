@@ -1,0 +1,19 @@
+.jumbotron {
+    background: url(../images/skyline.png) center no-repeat;
+   }
+   
+   h1{
+       text-shadow : 2px 2px 4px #999;
+   }
+   
+   body{
+   background-color: fff;
+   }
+   
+   #bars{
+       
+   }
+   
+   .pageContent{
+       background-color: #eee;
+   }
