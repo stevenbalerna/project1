@@ -11,8 +11,8 @@ $('#submitLocationBtn').on('click', function () {
     var location = $('#cityInput').val().trim() + ', ' + $('#stateInput').children('option:selected').val()
     var restaurants = $('<div id = "restaurants"><h1>Restaurants:</h1><hr><br>')
     var bars = $('<div id = "bars"><h1>Bars:</h1><hr><br>')
-    $('#yelpInfo').append(restaurants)
-    bars.insertAfter(restaurants)
+    $('#restaurants').append(restaurants)
+    $('#bars').append(bars)
 
     var apiKey = 'gYpd0tg2LukWlDSHSOD5LgGSwODx7DSxL4tNAKDW0Hmo3isXWutgLbtpboiWy76e79vrCD02K9yc1Gfm5VMOc2XmDoyloCiaWVRg2PGbksm9ByMzEjTrbPS5CQv3XHYx'
     $.ajax({
@@ -35,9 +35,17 @@ $('#submitLocationBtn').on('click', function () {
             rating = response.businesses[i].rating
             price = response.businesses[i].price
             image = response.businesses[i].image_url
-            var businessResponse = ('<h3>Name:</h3>') + ('<p>') + name + ('</p><img class ="images" src="' + image + '"><h3>Rating:</h3><p>') + rating + ('</p><h3>Price:</h3><p class = "price">') + price + ('</p>')
-            restaurants.append(businessResponse)
-            $('.images').css('height', '200px')
+
+            var $container = $("<div>").attr("class", "col-12 p-3");
+
+            var $name = $("<h3>").attr("class", "").text(name);
+            var $image = $("<img>").attr("class", "").attr("src", image).css("height", "200px");
+            var $rating = $("<p>").attr("class", "").text("Rating: " + rating);
+            var $price = $("<p>").attr("class", "").text("Price: "+ price);
+
+            $container.append($name, $image, $rating, $price);
+            restaurants.append($container)
+            
         }
     })
 
@@ -61,9 +69,16 @@ $('#submitLocationBtn').on('click', function () {
             rating = response.businesses[i].rating
             price = response.businesses[i].price
             image = response.businesses[i].image_url
-            var businessResponse = ('<h3>Name:</h3>') + ('<p>') + name + ('</p><img class ="images" src="' + image + '"><h3>Rating:</h3><p>') + rating + ('</p><h3>Price:</h3><p class = "price">') + price + ('</p>')
-            bars.append(businessResponse)
-            $('.images').css('height', '200px')
+            
+            var $container = $("<div>").attr("class", "p-3");
+
+            var $name = $("<h3>").attr("class", "").text(name);
+            var $image = $("<img>").attr("class", "").attr("src", image).css("height", "200px");
+            var $rating = $("<p>").attr("class", "").text("Rating: " + rating);
+            var $price = $("<p>").attr("class", "").text("Price: "+ price);
+
+            $container.append($name, $image, $rating, $price);
+            bars.append($container)
         }
     })
 });
