@@ -1,19 +1,45 @@
 .jumbotron {
+
+    border: 5px groove #337;
+    
+    
     background: url(../images/skyline.png) center no-repeat;
-   }
-   
-   h1{
-       text-shadow : 2px 2px 4px #999;
-   }
-   
-   body{
-   background-color: fff;
-   }
-   
-   #bars{
-       
-   }
-   
-   .pageContent{
-       background-color: #eee;
-   }
+}
+
+
+body {
+
+    background-color: #555;
+}
+
+
+#pageContent {
+    background-color: #eee;
+}
+
+.color_blue {
+    color: #fff;
+    background: #337;
+}
+
+
+.no_star {
+    width: 24px;
+    height: 24px;
+    background: url(../images/starSheet.png) 0 0;
+    
+}
+
+.half_star {
+    width: 24px;
+    height: 24px;
+    background: url(../images/starSheet.png) -24px 0;
+    
+}
+
+.full_star {
+    width: 24px;
+    height: 24px;
+    background: url(../images/starSheet.png) 24px 0;
+    
+}
