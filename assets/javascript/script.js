@@ -4,7 +4,6 @@ $(document).ready(function () {
     getLocationInfo("Charlotte", "North Carolina", "Charlotte, NC");
     
 
-
     $("#submitLocationBtn").on("click", function (event) {
         event.preventDefault();
 
@@ -123,7 +122,9 @@ function getTopFiveOf(term, location) {
             limit: '5'
         }
     }).then(function (response) {
-        console.log(term , response)
+        
+        console.log(response);
+
         addCardToPage(createCard(term, createEntertainmentHTML(response.businesses)), "Entertainment", "hide");
 
     })
@@ -161,29 +162,22 @@ function createStatsHTML(cityInfo) {
 
 function createEntertainmentHTML(businesses) {
     var $container = $("<div>").attr("class", "container");
-    var $row = $("<div>").attr("class", "row").appendTo($container);
+    var $row = $("<div>").attr("class", "row text-center").appendTo($container);
 
     businesses.forEach(business => {
         var name = business.name
         var rating = business.rating;
-
-        
-        
         var image = business.image_url
-
-
-        var $newDiv = $("<div>").attr("class", "col-6");
+        var $newDiv = $("<div>").attr("class", "col-6 pb-3");
         var $name = $("<h5>").attr("class", "").text(name).appendTo($newDiv);
-        var $image = $("<img>").attr("class", "").attr("src", image).css("height", "100px").appendTo($newDiv);
+        var $link = $("<a>").attr("target", "_blank").attr("href", business.url).appendTo($newDiv);
+        var $image = $("<img>").attr("class", "").attr("src", image).css("height", "200px").appendTo($link);
 
         var $rating = getStars(rating).appendTo($newDiv);
 
         if(business.price){
             getDollars(business.price.length).appendTo($newDiv);
         } 
-
-
-
 
         $row.append($newDiv);
     });
