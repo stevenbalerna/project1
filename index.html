@@ -11,17 +11,15 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     </script>
-    <script src='assets/javascript/yelp-api.js' defer></script>
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 </head>
 
 <body>
 
-    <div class="container py-2 px-5 pageContent">
+    <div class="container py-2 px-5" id="pageContent">
         <div class="row mt-2">
-
             <div class="col-12">
-                <div class="jumbotron mb-2 text-center border rounded border-white jumbotron-fluid">
+                <div class="jumbotron mb-2 text-center jumbotron-fluid">
                     <div class="container">
                         <h1 class="display-2">
                             <solid>CityScope</solid>
@@ -32,11 +30,9 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
         <div class="row">
-
             <div class="col-12 mb-2">
                 <form class="form-inline justify-content-center">
                     <div class="form-group">
@@ -98,62 +94,19 @@
                             <option data-index="56" value="WY">Wyoming</option>
                         </select>
                     </div>
-
-
-                    <button id="submitLocationBtn" type="submit" class="btn btn-primary">Let's
+                    <button id="submitLocationBtn" type="submit" class="btn color_blue">Let's
                         CityScope!</button>
                 </form>
 
-            </div>
+                
+                
 
-        </div>
-
-
-
-
-
-        <div class="row  justify-content-lg-center">
-            <div class="col-12 col-md-12 pb-3">
-                <div class="card">
-                    <div class="card-header text-white text-center bg-primary">
-                        <strong>Scoping out the City Facts</strong>
-                    </div>
-
-                    <div class="container">
-                        <div class="card-body pl-0 pr-0" id="cityInfo">
-
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="col-12 col-md-12 pb-3">
-                <div class="card">
-                    <div class="card-header text-white text-center bg-success">
-                        <strong>Scoping out the Food and Nightlife</strong>
-                    </div>
-                    <div class="container">
-                        <div class="row ">
-                            <div class="card-body col-6" id="restaurants">
-
-                            </div>
-                            <div class="card-body col-6" id="bars">
-
-                            </div>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
             </div>
         </div>
 
 
     </div>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
